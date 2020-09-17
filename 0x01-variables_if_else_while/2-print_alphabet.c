@@ -9,12 +9,11 @@
 main()
 {
 
-char c
-char n = '\n';
+char c = 'a'
 for (c = 'a'; c <= 'z'; c++)
 {
 putchar(c);
 }
-putchar(n);
+putchar('\n)';
 return (0);
 }
