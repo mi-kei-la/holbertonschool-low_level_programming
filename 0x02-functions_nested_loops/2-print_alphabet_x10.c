@@ -10,14 +10,15 @@
 
 void print_alphabet_x10(void)
 {
-int a;
-int count;
-for(count = 0; count < 10; count++)
-{
-for(a = 'a'; a <= 'z'; a++)
-{
-_putchar(a);
-}
-_putchar('\n');
-}
+	int a;
+	int count;
+
+	for (count = 0; count < 10; count++)
+	{
+		for (a = 'a'; a <= 'z'; a++)
+		{
+			_putchar(a);
+		}
+		_putchar('\n');
+	}
 }

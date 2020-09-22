@@ -3,7 +3,9 @@
 /**
  * print_last_digit - entry point
  *
- * return value of last digit
+ * @a: parameter
+ *
+ * Return: the value of the last digit
  *
  */
 

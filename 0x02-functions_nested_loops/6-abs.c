@@ -5,6 +5,8 @@
  *
  * write the absolut value of an integer
  *
+ * @a: parameter
+ *
  * Return: 0 (success)
  */
 

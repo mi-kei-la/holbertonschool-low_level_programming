@@ -3,6 +3,7 @@
 /**
  * _islower - entry point
  *
+ * @r: operand
  * Return: 1 if character is lowercase, 0 otherwise
  */
 

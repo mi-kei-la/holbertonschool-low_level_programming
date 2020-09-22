@@ -3,6 +3,8 @@
 /**
  * _isalpha - entry point
  *
+ * @c: parameter
+ *
  * Return: 1 if char is letter (lowercase or uppercase), 0 otherwise
  */
 
