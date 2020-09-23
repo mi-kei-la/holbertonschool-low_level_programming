@@ -21,24 +21,24 @@ void print_times_table(int n)
 				num1 = med / 10;
 				num2 = med % 10;
 				num3 = res % 10;
-				if (mul2 != 0)
+				if (mul2 != 0) /* all columns but the first */
 				{
 					if (num1 != 0)
 						_putchar(num1 + '0');
 					else
 						_putchar(' ');
-					if (res >= 10)
+					if (res >= 10) /* takes into account cases like 101 */
 						_putchar(num2 + '0');
 					else
 						_putchar(' ');
 				}
-				_putchar(num3 + '0');
-				if (mul2 != n)
+				_putchar(num3 + '0'); /* first column is always one digit in this case */
+				if (mul2 != n) /* all columns but the last */
 				{
 					_putchar(',');
 					_putchar(' ');
 				}
-				else
+				else /* last column */
 					_putchar('\n');
 			}
 		}
