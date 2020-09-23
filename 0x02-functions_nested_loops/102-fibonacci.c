@@ -4,7 +4,6 @@
 /**
  * fibonacci - entry point
  *
- * print first 50 fibonacci numbers
  */
 
 void fibonacci(void)
