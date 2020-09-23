@@ -27,9 +27,3 @@ void fibonacci(void)
 			printf("\n");
 	}
 }
-
-int main(void)
-{
-	fibonacci();
-	return (0);
-}
