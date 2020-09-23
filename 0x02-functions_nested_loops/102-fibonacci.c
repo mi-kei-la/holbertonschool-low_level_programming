@@ -10,18 +10,26 @@
 void fibonacci(void)
 {
 	int a;
-	unsigned int fib = 1;
-	signed long int fib2;
-	unsigned int fib_ant = 0;
+	unsigned long int fib = 1;
+	unsigned long int fib2;
+	unsigned long int fib_ant = 0;
 
 	for (a = 0; a <= 50; a++)
 	{
 		fib2 = fib + fib_ant;
-		printf(fib2);
+		printf("%lu", fib2);
 		fib_ant = fib;
 		fib = fib2;
 
 		if (a != 50)
 			printf(", ");
+		else
+			printf("\n");
 	}
+}
+
+int main(void)
+{
+	fibonacci();
+	return (0);
 }
