@@ -32,7 +32,7 @@ void fibonacci(void)
 		fib_ant = fib;
 		fib = fib2;
 
-		if (a < 50)
+		if (a < 49)
 			printf(", ");
 		else
 			printf("\n");
