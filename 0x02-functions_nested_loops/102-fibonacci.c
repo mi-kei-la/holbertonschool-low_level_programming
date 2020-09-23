@@ -1,4 +1,4 @@
-#include "holberton.h"
+B#include "holberton.h"
 #include <stdio.h>
 
 /**
@@ -25,14 +25,14 @@ void fibonacci(void)
 	unsigned long int fib2;
 	unsigned long int fib_ant = 0;
 
-	for (a = 0; a <= 50; a++)
+	for (a = 0; a < 50; a++)
 	{
 		fib2 = fib + fib_ant;
 		printf("%lu", fib2);
 		fib_ant = fib;
 		fib = fib2;
 
-		if (a != 50)
+		if (a < 50)
 			printf(", ");
 		else
 			printf("\n");
