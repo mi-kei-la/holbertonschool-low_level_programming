@@ -24,15 +24,13 @@ void print_times_table(int n)
 				if (mul2 != 0)
 				{
 					if (num1 != 0)
-					{
 						_putchar(num1 + '0');
-						_putchar(num2 + '0');
-					}
 					else
-					{
 						_putchar(' ');
+					if (res >= 10)
+						_putchar(num2 + '0');
+					else
 						_putchar(' ');
-					}
 				}
 				_putchar(num3 + '0');
 				if (mul2 != n)
