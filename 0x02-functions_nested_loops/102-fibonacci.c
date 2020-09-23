@@ -2,8 +2,20 @@
 #include <stdio.h>
 
 /**
- * fibonacci - entry point
+ * main - entry point
  *
+ *
+ * Return: 0 (always success)
+ */
+
+int main(void)
+{
+	fibonacci();
+	return (0);
+}
+
+/**
+ * fibonacci - print 50 fibonacci numbers
  */
 
 void fibonacci(void)
