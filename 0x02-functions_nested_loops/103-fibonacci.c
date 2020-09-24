@@ -24,20 +24,13 @@ void sum_fibonacci(void)
 	unsigned long int fib = 1;
 	unsigned long int fib2;
 	unsigned long int fib_ant = 0;
-	unsigned long int var;
 	unsigned long int sum = 0;
 
 	for (a = 0; a < 32; a++)
 	{
 		fib2 = fib_ant + fib;
-		if (fib2 / 2 != 0)
-		{
-			printf("its even, this is the even fib2: %lu\n", fib2);
+		if (fib2 % 2 == 0)
 			sum += fib2;
-			printf("This is the sum %lu\n", sum);
-		}
-
-		printf("all fib2: %lu\n", fib2);
 		fib_ant = fib;
 		fib = fib2;
 	}
