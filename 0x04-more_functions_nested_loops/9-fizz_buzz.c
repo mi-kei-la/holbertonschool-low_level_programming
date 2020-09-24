@@ -27,9 +27,9 @@ void fizz_buzz(void)
 		if (count % 15 == 0)
 			printf("FizzBuzz ");
 		else if (count % 5 == 0)
-			printf("Fizz ");
-		else if (count % 3 == 0)
 			printf("Buzz ");
+		else if (count % 3 == 0)
+			printf("Fizz ");
 		else
 			printf("%d ", count);
 	}
