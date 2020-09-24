@@ -8,31 +8,34 @@
 
 void print_number(int n)
 {
-	int first;
-	int sec;
-	int third;
-	int four;
-	int mid1;
-	int mid2;
+	int a;
+	int b;
+	int num;
+	int count;
+	int exp;
 
-	if (n < 0)
+	num = n;
+	count = 0;
+	while (a > 0) /* count number of digits */
 	{
-		_putchar('-');
-		n = -n;
+		a = num / 10;
+		count++;
+		num = a;
 	}
 
-	mid1 = n / 10;
-	mid2 = mid1 / 10;
-	first = mid2 / 10;
-	sec = mid2 % 10;
-	third = mid1 % 10;
-	four = n % 10;
+	b = 10;
+	exp = count;
+	while (exp >= 0) /* elevate 10 to the number of digits the number has */
+	{
+		b = b * 10;
+		exp--;
+	}
 
-	if (n >= 1000)
-		_putchar(first + 48);
-	if (n >= 100)
-		_putchar(sec + 48);
-	if (n >= 10)
-		_putchar(third + 48);
-	_putchar(four + 48);
+	while (count > 0) /* take number apart & print each digit */
+	{
+		_putchar((num / b) + '0');
+		b = b / 10;
+		num = num % b;
+		count--;
+	}
 }
