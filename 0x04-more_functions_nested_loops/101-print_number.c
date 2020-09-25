@@ -8,34 +8,41 @@
 
 void print_number(int n)
 {
-	int a;
-	int b;
+	int ini;
+	unsigned long div10;
 	int num;
 	int count;
 	int exp;
 
-	num = n;
-	count = 0;
-	while (a > 0) /* count number of digits */
+	if (n < 0) /* take into account negative numbers */
 	{
-		a = num / 10;
-		count++;
-		num = a;
+		n = -n;
+		_putchar('-');
 	}
 
-	b = 10;
-	exp = count;
-	while (exp >= 0) /* elevate 10 to the number of digits the number has */
+	num = n;
+	ini = n;
+	count = 0;
+	while (ini > 9) /* count number of digits */
 	{
-		b = b * 10;
+		ini = num / 10;
+		count++;
+		num = ini;
+	}
+
+	div10 = 10;
+	exp = count - 1;
+	while (exp > 0) /* elevate 10 to the number of digits the number has */
+	{
+		div10 = div10 * 10;
 		exp--;
 	}
 
-	while (count > 0) /* take number apart & print each digit */
+	while (count >= 0) /* take number apart & print each digit */
 	{
-		_putchar((num / b) + '0');
-		b = b / 10;
-		num = num % b;
+		_putchar((n / div10) + '0');
+		n = n % div10;
+		div10 = div10 / 10;
 		count--;
 	}
 }
