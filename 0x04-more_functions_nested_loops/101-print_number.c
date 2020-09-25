@@ -9,7 +9,7 @@
 void print_number(int n)
 {
 	int ini;
-	unsigned long long int div10;
+	unsigned int div10;
 	int num;
 	int count;
 	int exp;
