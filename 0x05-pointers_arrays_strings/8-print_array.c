@@ -10,22 +10,14 @@
 
 void print_array(int *a, int n)
 {
-	int x, len, *a2;
+	int x;
 
-	a2 = a;
-	while (*a2 != '\0')
+	for (x = 0; x < n; x++)
 	{
-		len++;
-		a2++;
-	}
-	x = 0;
-	while (x < n)
-	{
-		printf("%d", *(a + x));
-		x++;
-		if (x != n)
-			printf(", ");
+		if (x == n - 1)
+			printf("%d", a[x]);
 		else
-			printf("\n");
+			printf("%d, ", a[x]);
 	}
+	printf("\n");
 }
