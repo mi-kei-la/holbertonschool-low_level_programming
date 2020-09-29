@@ -1,0 +1,1 @@
+This is a mandatory readme file for the 0x05 project of the Holberton foundations programme
