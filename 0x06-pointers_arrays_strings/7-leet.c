@@ -2,7 +2,7 @@
 /**
  * leet - change some letters for numbers
  *
- * @s - parameter
+ * @s: parameter string
  *
  * Return: string
  */
