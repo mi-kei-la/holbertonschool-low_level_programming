@@ -1,9 +1,12 @@
-#include "holberton.h"
+B#include "holberton.h"
 #include <stdio.h>
 
 /**
  * string_toupper - change string to upper
  *
+ * @n: string parameter
+ *
+ * Return: string in uppercase
  */
 
 char *string_toupper(char *n)
