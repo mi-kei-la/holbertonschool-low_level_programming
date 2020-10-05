@@ -24,6 +24,8 @@ char *_strpbrk(char *s, char *accept)
 		if (s[y] == accept[x])
 			break;
 	}
-
-	return (s);
+	if (s[y] == accept [x])
+		return (s);
+	else
+		return (0);
 }
