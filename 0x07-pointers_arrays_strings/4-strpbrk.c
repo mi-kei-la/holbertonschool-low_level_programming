@@ -12,19 +12,18 @@
 char *_strpbrk(char *s, char *accept)
 {
 	int x;
-	int y;
 
-	for (y = 0; s[y] != 0; s++)
+	for ( ; *s != 0; s++)
 	{
 		for (x = 0; accept[x] != 0; x++)
 		{
-			if (s[y] == accept[x])
+			if (*s == accept[x])
 				break;
 		}
-		if (s[y] == accept[x])
+		if (*s == accept[x])
 			break;
 	}
-	if (s[y] == accept [x])
+	if (*s == accept[x])
 		return (s);
 	else
 		return (0);
