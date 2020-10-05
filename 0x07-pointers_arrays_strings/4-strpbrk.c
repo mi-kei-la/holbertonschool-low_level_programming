@@ -18,13 +18,8 @@ char *_strpbrk(char *s, char *accept)
 		for (x = 0; accept[x] != 0; x++)
 		{
 			if (*s == accept[x])
-				break;
+				return (s);
 		}
-		if (*s == accept[x])
-			break;
 	}
-	if (*s == accept[x])
-		return (s);
-	else
-		return (0);
+	return (0);
 }
