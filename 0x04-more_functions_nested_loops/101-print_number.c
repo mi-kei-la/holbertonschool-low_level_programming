@@ -14,8 +14,6 @@ void print_number(int n)
 	int count;
 	int exp;
 
-if (n <= 65535)
-{
 	if (n < 0) /* take into account negative numbers */
 	{
 		n = -n;
@@ -47,7 +45,4 @@ if (n <= 65535)
 		div10 = div10 / 10;
 		count--;
 	}
-}
-else
-_putchar(10);
 }
