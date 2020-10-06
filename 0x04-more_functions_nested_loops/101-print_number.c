@@ -14,13 +14,14 @@ void print_number(int n)
 	int count;
 	int exp;
 
+if (n <= 65535)
+{
 	if (n < 0) /* take into account negative numbers */
 	{
 		n = -n;
 		_putchar('-');
 	}
-if (n <= 65535)
-{
+
 	num = n;
 	ini = n;
 	count = 0;
