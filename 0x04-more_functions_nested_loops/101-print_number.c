@@ -19,7 +19,8 @@ void print_number(int n)
 		n = -n;
 		_putchar('-');
 	}
-
+if (n <= 65535)
+{
 	num = n;
 	ini = n;
 	count = 0;
@@ -45,4 +46,7 @@ void print_number(int n)
 		div10 = div10 / 10;
 		count--;
 	}
+}
+else
+_putchar(10);
 }
