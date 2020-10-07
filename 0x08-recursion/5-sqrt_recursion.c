@@ -1,4 +1,4 @@
-#include "holberton.h"
+B#include "holberton.h"
 
 /**
  * _sqrt_recursion - find the natural square root of a number
@@ -18,6 +18,15 @@ int _sqrt_recursion(int n)
 		return (1);
 	return (_rec(n, 2));
 }
+
+/**
+ * _rec - increment b and check for root
+ *
+ * @n: parameter
+ * @b: divider
+ *
+ * Return: root
+ */
 
 int _rec(int n, int b)
 {

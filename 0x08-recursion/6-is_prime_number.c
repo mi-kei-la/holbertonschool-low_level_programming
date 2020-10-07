@@ -23,6 +23,15 @@ int is_prime_number(int n)
 		return (0);
 }
 
+/**
+ * _check - check if number is prime
+ *
+ * @n: parameter
+ * @i: int
+ *
+ * Return: flag
+ */
+
 int _check(int n, int i)
 {
 	if (n == i)
