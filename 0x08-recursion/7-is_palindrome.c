@@ -13,13 +13,18 @@ int is_palindrome(char *s)
 {
 	int inicio = 0;
 	int fin = _count(s) - 1;
-	return(_pal_(s, inicio, fin));
+
+	return (_pal_(s, inicio, fin));
 }
 
 /**
  * _pal_ - check if it is palindrome
  *
  * @s: string
+ * @inicio: start of string
+ * @fin: end of string
+ *
+ * Return: 1 if palindrome, 0 otherwise
  */
 
 int _pal_(char *s, int inicio, int fin)
@@ -45,5 +50,5 @@ int _count(char *s)
 {
 	if (*s == 0)
 		return (0);
-	return (1 + _count(s+1));
+	return (1 + _count(s + 1));
 }
