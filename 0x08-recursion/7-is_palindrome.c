@@ -11,13 +11,9 @@
 
 int is_palindrome(char *s)
 {
-	int flag = 0;
-
-	flag = _pal_(s);
-	if (flag != 0)
-		return (1);
-	else
-		return (0);
+	int inicio = 0;
+	int fin = _count(s) - 1;
+	return(_pal_(s, inicio, fin));
 }
 
 /**
@@ -26,24 +22,14 @@ int is_palindrome(char *s)
  * @s: string
  */
 
-int _pal_(char *s)
+int _pal_(char *s, int inicio, int fin)
 {
-	int i = 1, len = 0, flag = 0;
-	char *x, *y;
+	if (inicio >= fin) /* base case */
+		return (1);
 
-	len = _count(s);
-	x = s;
-	y = s + len;
-	printf("%i",len);
-	if (x == y || y == s)
-		return (flag);
-	else if (*(x + i) == *(y - i))
-	{
-		i++;
-		flag++;
-		return(_pal_(s));
-	}
-	printf("%i", flag);
+	if (s[inicio] == s[fin] && inicio < fin)
+		return (_pal_(s, inicio + 1, fin - 1));
+
 	return (0);
 }
 
@@ -57,11 +43,7 @@ int _pal_(char *s)
 
 int _count(char *s)
 {
-	int i = 0;
-
 	if (*s == 0)
-		return (i);
-	i++;
-	i = _count(s + 1);
-	return (i);
+		return (0);
+	return (1 + _count(s+1));
 }
