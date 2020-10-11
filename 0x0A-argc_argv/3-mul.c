@@ -7,7 +7,7 @@
 * @argc: parameter
 * @argv: parameter
 *
-* Return: 0 if success, 1 otherwise  
+* Return: 0 if success, 1 otherwise
 */
 
 int main(int argc, char **argv)
