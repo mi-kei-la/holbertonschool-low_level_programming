@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "holberton.h"
 #include <stdlib.h>
+#include <ctype.h>
 /**
   * main - entry point
   * @argc: - count
@@ -10,7 +11,7 @@
 
 int main(int argc, char **argv)
 {
-	int sum = 0, i;
+	int sum = 0, i, j;
 
 	if (argc == 1)
 	{
@@ -19,6 +20,14 @@ int main(int argc, char **argv)
 	}
 	for (i = 1; i < argc; i++)
 	{
+		for (j = 0; argv[i][j] != 0; j++)
+		{
+			if (argv[i][j] == '.')
+			{
+				printf("Error\n");
+				return (1);
+			}
+		}
 		if ((atoi(argv[i]) == 0 && *argv[i] != '0') ||
 				(atoi(argv[i]) < 0) || (argv[i][0] == '+'))
 		{
@@ -30,6 +39,6 @@ int main(int argc, char **argv)
 			sum += atoi(argv[i]);
 		}
 	}
-	printf("%d\n", sum);
+	printf("%i\n", sum);
 	return (0);
 }
