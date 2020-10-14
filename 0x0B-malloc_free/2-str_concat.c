@@ -38,18 +38,23 @@ char *str_concat(char *s1, char *s2)
 	if (new == NULL)
 		return (NULL);
 
-	while (l < i)
+	if (i != 0)
 	{
-		new[l] = s1[l];
-		l++;
+		while (l < i)
+		{
+			new[l] = s1[l];
+			l++;
+		}
 	}
-	while (l + m <= len)
+	if (j != 0)
 	{
-		new[l + m] = s2[m];
-		m++;
+		while (l + m <= len)
+		{
+			new[l + m] = s2[m];
+			m++;
+		}
+		new[l + m] = '\0';
 	}
-	new[l + m] = '\0';
-
 	return (new);
 	free(new);
 }
