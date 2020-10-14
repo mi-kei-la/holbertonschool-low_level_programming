@@ -1,4 +1,4 @@
-#include "holberton.h"
+B#include "holberton.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -24,5 +24,5 @@ char *create_array(unsigned int size, char c)
 		i++;
 	}
 	return (arr);
-	free (arr);
+	free(arr);
 }
