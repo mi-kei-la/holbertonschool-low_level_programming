@@ -17,19 +17,14 @@ char *str_concat(char *s1, char *s2)
 
 	if (s1 == NULL)
 		s1 = "";
-	else
+	for (i = 0; s1[i] != 0; i++)
 	{
-		for (i = 0; s1[i] != 0; i++)
-		{
-		}
 	}
+
 	if (s2 == NULL)
 		s2 = "";
-	else
+	for (j = 0; s2[j] != 0; j++)
 	{
-		for (j = 0; s2[j] != 0; j++)
-		{
-		}
 	}
 
 	len = i + j + 1;
@@ -38,11 +33,11 @@ char *str_concat(char *s1, char *s2)
 	if (new == NULL)
 		return (NULL);
 
-	for (l = 0; l < i; l++)
+	for (l = 0; s1[l] != 0; l++)
 		new[l] = s1[l];
-	for (m = 0; l + m < len; m++)
-		new[l + m] = s2[m];
-	new[l + m] = '\0';
+	for (m = 0; s2[m] != 0; m++, l++)
+		new[l] = s2[m];
+	new[l] = '\0';
 
 	return (new);
 	free(new);
