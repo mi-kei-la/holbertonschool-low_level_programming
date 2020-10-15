@@ -22,9 +22,13 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	arr = malloc(nmemb * size);
 
 	if (arr == NULL)
+	{
+		free(arr);
 		return (NULL);
+	}
 
 	for (x = 0; x < nmemb; x++)
 		arr[x] = 0;
+
 	return (arr);
 }
