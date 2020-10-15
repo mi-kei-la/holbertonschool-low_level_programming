@@ -1,4 +1,4 @@
-B#include "holberton.h"
+#include "holberton.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -15,6 +15,7 @@ B#include "holberton.h"
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	char *arr;
+	unsigned int x;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
@@ -27,7 +28,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 	}
 
-	for (x = 0; x < nmemb; x++)
+	for (x = 0; x < (nmemb * size); x++)
 	{
 		arr[x] = 0;
 	}
