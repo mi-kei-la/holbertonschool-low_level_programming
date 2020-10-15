@@ -1,36 +1,48 @@
 #include "holberton.h"
 #include <stdlib.h>
-
+#include <stdio.h>
 /**
- * alloc_grid - pointer to 2d array
- *
- * @width: parameter
- * @height: parameter
- * Return: NULL if negative parameters or on fail, pointer otherwise
- */
+  * **alloc_grid - Concatenate two strings
+  * @width: string 1
+  * @height: string 2
+  * Return: null if malloc fail, return pointer
+  */
 
 int **alloc_grid(int width, int height)
 {
-	int i, j;
-	int **arr = malloc(sizeof(int) * height);
+	int x;
+	int **grid;
 
-	if (arr == NULL)
-		return (NULL);
+	/* Contemplate if width or height doesn't have any value (return error) */
 	if (width <= 0 || height <= 0)
 		return (NULL);
 
-	for (i = 0; i < height; i++)
+	grid = (int **)malloc(sizeof(int *) * height);
+
+	/* Contemplate if memory is allocated into 'grid' (return error) */
+	if (grid == NULL)
 	{
-		arr[i] = (int *)malloc(sizeof(int) * width);
-		if (arr[i] == 0)
+		free(grid);
+		return (NULL);
+	}
+
+	/* Go over every index to every row */
+	for (x = 0; x < height; x++)
+	{
+		/* Assign memory to every column for every index of row */
+		grid[x] = (int *)malloc(sizeof(int) * width);
+		
+		/* If memory allocation fails in any iteration, free the memory and return NULL */
+		/* Probably don't need this, maybe the 'if' check and return NULL */
+		if  (grid[x] == NULL)
+		{
+			for (x = x - 1; x >= 0; x--)
+			{
+				free(grid[x]);
+			}
+			free(grid);
 			return (NULL);
+		}
 	}
-
-	for (i = 0; i < height; i++)
-	{
-		for (j = 0; j < width; j++)
-			arr[i][j] = 0;
-	}
-
-	return (arr);
+	return (grid);
 }
