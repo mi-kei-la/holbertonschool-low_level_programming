@@ -6,13 +6,14 @@
  *
  * Return: Always 0.
  */
-	int main(void)
+int main(void)
 {
 	struct dog my_dog;
 
-	my_dog.name = "Django";
-	my_dog.age = 3.5;
+	my_dog.name = "";
+	my_dog.age = 0;
 	my_dog.owner = "Bob";
 	print_dog(&my_dog);
+
 	return (0);
 }
