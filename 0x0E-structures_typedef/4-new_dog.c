@@ -13,14 +13,31 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	char *new_name, *new_owner;
-	struct dog *new;
+	struct dog_t *new;
+	int i, j, i2, j2;
 
 	if (name == NULL || age < 0 || owner == NULL)
 		return (NULL);
 	new = malloc(sizeof(struct dog));
 
-	new_name = name;
-	new_owner = owner;
+	for (i = 0; name[i] != 0; i++)
+	{
+	}
+
+	for (j = 0; owner[j] != 0; j++)
+	{
+	}
+
+	new_name = malloc(sizeof(char) * i);
+	new_owner = malloc(sizeof(char) * j);
+
+	for (i2 = 0; i2 <= i; i2++)
+		new_name[i2] = name[i2];
+	new_name[i2] = '\0';
+	
+	for (j2 = 0; j2 <= j; j2++)
+		new_owner[j2] = owner[j2];
+	new_owner[j2] = '\0';
 
 	if (new == NULL)
 		return (NULL);
@@ -32,29 +49,4 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 
 	return (new);
-}
-
-/**
- * *_strcpy - copy a string into another
- *
- * @src: source parameter
- * @dest: parameter destination
- *
- * Return: pointer to destination
- */
-
-char *_strcpy(char *dest, char *src)
-{
-	int count, x;
-
-	for (count = 0; src[count] != '\0'; count++)
-	{
-	}
-
-	for (x = 0; x <= count; x++)
-	{
-		dest[x] = src[x];
-	}
-
-	return (dest);
 }
