@@ -3,11 +3,12 @@
 #include <stdlib.h>
 
 /**
- * dog_t - create a new dog
+ * new_dog - create a new dog
  *
  * @name: dog name
  * @age: dog age
  * @owner: dog owner
+ * Return: pointer to new dog
  */
 
 dog_t *new_dog(char *name, float age, char *owner)
@@ -15,23 +16,45 @@ dog_t *new_dog(char *name, float age, char *owner)
 	char *new_name, *new_owner;
 	dog_t *new;
 
-	if (name == NULL || age < 0 || owner == NULL)
+	if (name == NULL || owner == NULL)
 		return (NULL);
+
 	new = malloc(sizeof(struct dog));
-	new_name = _strdup(name);
-	new_owner = _strdup(owner);
 
 	if (new == NULL)
 		return (NULL);
-	else
+
+	new_name = _strdup(name);
+	if (new_name == NULL)
 	{
-		new->name = new_name;
-		new->age = age;
-		new->owner = new_owner;
+		free(new);
+		return (NULL);
 	}
+
+	new_owner = _strdup(owner);
+	if (new_name == NULL)
+	{
+		free(new);
+		free(new_name);
+		return (0);
+	}
+
+	new->name = new_name;
+	new->age = age;
+	new->owner = new_owner;
+
 
 	return (new);
 }
+
+
+/**
+* _strdup - copy string, return pointer to it
+ *
+ * @str: original string
+ *
+ * Return: pointer to duplicated string, NULL otherwise
+ */
 
 char *_strdup(char *str)
 {
