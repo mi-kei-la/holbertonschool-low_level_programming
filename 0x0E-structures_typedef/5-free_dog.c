@@ -5,7 +5,6 @@
 /**
   * free_dog - free dogs
   *
-  * @dog_t: struct
   * @d: parameter
   */
 
