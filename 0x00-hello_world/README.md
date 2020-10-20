@@ -1,8 +1,8 @@
-## Hello World
+# Hello World
 
 This is the first project in the C programming language.
 
-# Tasks
+## Tasks
 
 - Tasks 0-3 went through the different steps of the compilation process.
 
