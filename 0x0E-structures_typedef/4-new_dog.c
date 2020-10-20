@@ -3,58 +3,81 @@
 #include <stdlib.h>
 
 /**
- * dog_t - create a new dog
+ * _strdup - array of chars
+ * @str: string
  *
- * @name: dog name
- * @age: dog age
- * @owner: dog owner
+ * Return: always
+ */
+
+char *_strdup(char *str)
+{
+	char *s; /*pointer to copy of str*/
+	int i; /*index of str*/
+	int ii; /*index of copy of str*/
+
+	if (str == NULL)
+	{
+		return (NULL);
+	}
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+	}
+
+	s = malloc(i * sizeof(char) + 1);
+
+	if (s == NULL)
+	{
+		return (NULL);
+	}
+	for (ii = 0; ii <= i; ii++)
+	{
+		s[ii] = str[ii];
+	}
+	return (s);
+}
+
+/**
+ * new_dog - dog description
+ * @name: name
+ * @age: age
+ * @owner: owner
+ *
+ * Return: dogs description
  */
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	char *new_name, *new_owner;
-	struct dog *new;
+	dog_t *dog;
+	char *cpy_name, *cpy_owner;
 
-	if (name == NULL || age < 0 || owner == NULL)
+	if (name == NULL || owner == NULL)
+	{
+		return (0);
+	}
+
+	dog = malloc(sizeof(dog_t));
+	if (dog == NULL)
+	{
 		return (NULL);
-	new = malloc(sizeof(struct dog));
+	}
 
-	new_name = name;
-	new_owner = owner;
-
-	if (new == NULL)
+	cpy_name = _strdup(name);
+	if (cpy_name == NULL)
+	{
+		free(dog);
+		return (0);
+	}
+	cpy_owner = _strdup(owner);
+	if (cpy_owner == NULL)
+	{
+		free(dog);
+		free(cpy_name);
 		return (NULL);
-	else
-	{
-		new->name = new_name;
-		new->age = age;
-		new->owner = new_owner;
 	}
 
-	return (new);
-}
-
-/**
- * *_strcpy - copy a string into another
- *
- * @src: source parameter
- * @dest: parameter destination
- *
- * Return: pointer to destination
- */
-
-char *_strcpy(char *dest, char *src)
-{
-	int count, x;
-
-	for (count = 0; src[count] != '\0'; count++)
-	{
-	}
-
-	for (x = 0; x <= count; x++)
-	{
-		dest[x] = src[x];
-	}
-
-	return (dest);
+	dog->name = cpy_name;
+	dog->age = age;
+	dog->owner = cpy_owner;
+	return (dog);
 }
