@@ -37,9 +37,6 @@ int main(int argc, char **argv)
 		printf("%d\n", x);
 		return (0);
 	}
-	else
-	{
-		printf("Error\n");
-		return (99);
-	}
+	printf("Error\n");
+	return (99);
 }
