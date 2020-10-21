@@ -8,6 +8,7 @@
  * get_op_func - get function
  *
  * @s: operator
+ * Return: pointer to correct function
  */
 
 int (*get_op_func(char *s))(int, int)
