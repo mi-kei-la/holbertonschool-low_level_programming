@@ -23,10 +23,10 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		return (98);
 	}
-	if (atoi(argv[3]) == 0)
+	if ((strcmp(argv[2], "%") == 0 || strcmp(argv[2], "/") == 0) && atoi(argv[3]) == 0)
 	{
 		printf("Error\n");
-		return (99);
+		return (100);
 	}
 
 	if (strcmp(argv[2], "+") == 0 || strcmp(argv[2], "-") == 0 ||
