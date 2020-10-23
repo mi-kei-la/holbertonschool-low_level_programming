@@ -16,16 +16,20 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	unsigned int i;
 	int x;
 
-	va_start(numList, n);
 
-	for (i = 0; i < (n - 1); i++)
+	if (n > 0)
 	{
+		va_start(numList, n);
+
+		for (i = 0; i < (n - 1); i++)
+		{
+			x = va_arg(numList, int);
+			printf("%d", x);
+			if (*separator != 0)
+				printf("%s", separator);
+		}
 		x = va_arg(numList, int);
-		printf("%d", x);
-		if (*separator != 0)
-			printf("%s", separator);
+		printf("%d\n", x);
+		va_end(numList);
 	}
-	x = va_arg(numList, int);
-	printf("%d\n", x);
-	va_end(numList);
 }
