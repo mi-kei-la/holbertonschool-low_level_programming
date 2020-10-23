@@ -11,9 +11,10 @@ void print_all(const char * const format, ...);
  * @c: character
  * @f: function
  */
-typedef struct type
+#define struct type
 {
 	char c;
 	void (*f)(va_list);
-} types;
+};
+#typedef type types
 #endif
