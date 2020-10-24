@@ -10,15 +10,15 @@
 
 void print_all(const char * const format, ...)
 {
-	int x = 0, y = 0, i = 0, count = 0;
-	types tipos[] = {
-		{'c', print_char},
-		{'i', print_int},
-		{'f', print_float},
-		{'s', print_string},
+	int x = 0, y = 0, z = 0, count = 0;
+	struct types tipos[] = {
+		{'c', *print_char},
+		{'i', *print_int},
+		{'f', *print_float},
+		{'s', *print_string},
 		{NULL, NULL}
 	};
-
+	va_list argsList;
 
 	while (format[y] != 0) /*count format length*/
 	{
@@ -30,14 +30,13 @@ void print_all(const char * const format, ...)
 		y++;
 	}
 
-	va_list args;
-	va_start(args, count);
+	va_start(argsList, count);
 
 	while (format[x] != 0 && i < 5)
 	{
 		if (tipos[z].c == format[x])
 		{
-			tipos[z]->f(args);
+			tipos[z].f(argsList);
 			x++;
 		}
 		z++;
