@@ -10,56 +10,91 @@
 
 void print_all(const char * const format, ...)
 {
-	int x = 0, y = 0, z = 0, count = 0;
-	struct types tipos[] = {
-		{'c', *print_char},
-		{'i', *print_int},
-		{'f', *print_float},
-		{'s', *print_string},
-		{NULL, NULL}
+	int x = 0, z = 0;
+
+	type tipos[] = {
+		{"c", print_char},
+		{"i", print_int},
+		{"f", print_float},
+		{"s", print_string},
+		{0, 0}
 	};
-	va_list argsList;
+	va_list args;
+	char *str;
 
-	while (format[y] != 0) /*count format length*/
+	va_start(args, format);
+	str = "";
+
+	while (format[x] != 0)
 	{
-		if (format[y] == 'c' || format[y] == 's'
-		    || format[y] == 'i' || format[y] == 'f')
+		z = 0;
+		while (z < 4)
 		{
-			count++;
+			if (tipos[z].c[0] == format[x])
+			{
+				tipos[z].f(str, args);
+				str = ", ";
+				break;
+			}
+			z++;
 		}
-		y++;
+		x++;
 	}
 
-	va_start(argsList, count);
-
-	while (format[x] != 0 && i < 5)
-	{
-		if (tipos[z].c == format[x])
-		{
-			tipos[z].f(argsList);
-			x++;
-		}
-		z++;
-	}
-
+	va_end(args);
+	printf("\n");
 }
 
-void print_char(va_list)
+/**
+  * print_char - print a character
+  *
+  * @str: separator
+  * @args: list of arguments
+  */
+
+void print_char(char *str, va_list args)
 {
-	printf("%c", va_arg(args, char));
+	printf("%s%c", str, va_arg(args, int));
 }
 
-void print_int(va_list)
+/**
+  * print_int - print an integer
+  *
+  * @str: separator
+  * @args: list of arguments
+  */
+
+void print_int(char *str, va_list args)
 {
-	printf("%d", va_arg(args, char));
+	printf("%s%d", str, va_arg(args, int));
 }
 
-void print_float(va_list)
+/**
+  * print_float - print a float
+  *
+  * @str: separator
+  * @args: list of arguments
+  */
+
+void print_float(char *str, va_list args)
 {
-	printf("%f", va_arg(args, float));
+	printf("%s%f", str, va_arg(args, double));
 }
 
-void print_string(va_list)
+/**
+  * print_string - print a string
+  *
+  * @str: separator
+  * @args: list of arguments
+  */
+
+void print_string(char *str, va_list args)
 {
-	printf("%s", va_arg(args, char *));
+	char *x;
+
+	x = va_arg(args, char *);
+	if (x == NULL)
+		x = "(nil)";
+
+	printf("%s%s", str, x);
 }
