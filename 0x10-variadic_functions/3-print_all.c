@@ -10,22 +10,22 @@
 
 void print_all(const char * const format, ...)
 {
-	int x = 0, z = 0;
-
+	int x, z;
 	type tipos[] = {
 		{"c", print_char},
 		{"i", print_int},
 		{"f", print_float},
 		{"s", print_string},
-		{0, 0}
+		{NULL, NULL}
 	};
 	va_list args;
 	char *str;
 
 	va_start(args, format);
 	str = "";
-
-	while (format[x] != 0)
+	x = 0;
+	z = 0;
+	while (format && format[x])
 	{
 		z = 0;
 		while (z < 4)
