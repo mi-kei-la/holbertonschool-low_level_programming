@@ -93,7 +93,7 @@ void print_string(char *str, va_list args)
 	char *x;
 
 	x = va_arg(args, char *);
-	if (x == NULL)
+	if (x == NULL || *x == '\0')
 		x = "(nil)";
 
 	printf("%s%s", str, x);
