@@ -32,7 +32,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		if (temp != NULL)
 			printf("%s\n", temp);
 		else
-			printf("(nil)");
+			printf("(nil)\n");
 	}
 	else
 		printf("\n");
