@@ -1,48 +1,39 @@
 #include "holberton.h"
 
 /**
- * print_number - print numbers one char each
+ * print_number - print a number
  *
  * @n: parameter
  */
 
 void print_number(int n)
 {
-	int ini;
-	unsigned int div10;
-	int num;
-	int count;
-	int exp;
-
-	if (n < 0) /* take into account negative numbers */
-	{
-		n = -n;
+	if (n < 0)
 		_putchar('-');
-	}
+	print_nums(n);
+}
 
-	num = n;
-	ini = n;
-	count = 0;
-	while (ini > 9) /* count number of digits */
-	{
-		ini = num / 10;
-		count++;
-		num = ini;
-	}
+/**
+ * print_nums - recursion for print_number function
+ *
+ * @x: number to print
+ */
 
-	div10 = 10;
-	exp = count - 1;
-	while (exp > 0) /* elevate 10 to the number of digits the number has */
-	{
-		div10 = div10 * 10;
-		exp--;
-	}
+void print_nums(int x)
+{
+	int c = 0;
 
-	while (count >= 0) /* take number apart & print each digit */
+	if (x / 10)
+		print_nums(x / 10);
+
+	if (x < 0)
 	{
-		_putchar((n / div10) + '0');
-		n = n % div10;
-		div10 = div10 / 10;
-		count--;
+		c = x % 10;
+		_putchar(-c + '0');
+	}
+	else
+	{
+		c = x % 10;
+		_putchar(c + '0');
 	}
 }
