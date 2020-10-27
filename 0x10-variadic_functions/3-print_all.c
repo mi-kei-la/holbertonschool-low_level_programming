@@ -10,57 +10,91 @@
 
 void print_all(const char * const format, ...)
 {
-	int x = 0, y = 0, i = 0, count = 0;
-	types tipos[] = {
-		{'c', print_char},
-		{'i', print_int},
-		{'f', print_float},
-		{'s', print_string},
+	int x, z;
+	type tipos[] = {
+		{"c", print_char},
+		{"i", print_int},
+		{"f", print_float},
+		{"s", print_string},
 		{NULL, NULL}
 	};
-
-
-	while (format[y] != 0) /*count format length*/
-	{
-		if (format[y] == 'c' || format[y] == 's'
-		    || format[y] == 'i' || format[y] == 'f')
-		{
-			count++;
-		}
-		y++;
-	}
-
 	va_list args;
-	va_start(args, count);
+	char *str;
 
-	while (format[x] != 0 && i < 5)
+	va_start(args, format);
+	str = "";
+	x = 0;
+	z = 0;
+	while (format && format[x])
 	{
-		if (tipos[z].c == format[x])
+		z = 0;
+		while (z < 4)
 		{
-			tipos[z]->f(args);
-			x++;
+			if (tipos[z].c[0] == format[x])
+			{
+				tipos[z].f(str, args);
+				str = ", ";
+				break;
+			}
+			z++;
 		}
-		z++;
+		x++;
 	}
 
+	va_end(args);
+	printf("\n");
 }
 
-void print_char(va_list)
+/**
+  * print_char - print a character
+  *
+  * @str: separator
+  * @args: list of arguments
+  */
+
+void print_char(char *str, va_list args)
 {
-	printf("%c", va_arg(args, char));
+	printf("%s%c", str, va_arg(args, int));
 }
 
-void print_int(va_list)
+/**
+  * print_int - print an integer
+  *
+  * @str: separator
+  * @args: list of arguments
+  */
+
+void print_int(char *str, va_list args)
 {
-	printf("%d", va_arg(args, char));
+	printf("%s%d", str, va_arg(args, int));
 }
 
-void print_float(va_list)
+/**
+  * print_float - print a float
+  *
+  * @str: separator
+  * @args: list of arguments
+  */
+
+void print_float(char *str, va_list args)
 {
-	printf("%f", va_arg(args, float));
+	printf("%s%f", str, va_arg(args, double));
 }
 
-void print_string(va_list)
+/**
+  * print_string - print a string
+  *
+  * @str: separator
+  * @args: list of arguments
+  */
+
+void print_string(char *str, va_list args)
 {
-	printf("%s", va_arg(args, char *));
+	char *x;
+
+	x = va_arg(args, char *);
+	if (x == NULL || *x == '\0')
+		x = "(nil)";
+
+	printf("%s%s", str, x);
 }

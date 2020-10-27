@@ -25,11 +25,13 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		{
 			x = va_arg(numList, int);
 			printf("%d", x);
-			if (*separator != 0)
+			if (separator != NULL)
 				printf("%s", separator);
 		}
 		x = va_arg(numList, int);
 		printf("%d\n", x);
 		va_end(numList);
 	}
+	else
+		printf("\n");
 }
