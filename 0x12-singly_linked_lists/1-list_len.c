@@ -14,19 +14,14 @@
 size_t list_len(const list_t *h)
 {
 	unsigned int count = 0;
-	list_t *aux = malloc(sizeof(list_t));
 
-	if (h == NULL || aux == NULL)
+	if (h == NULL)
 		return (0);
 
-	aux->len = h->len;
-	aux->str = h->str;
-	aux->next = h->next;
-
-	while (aux->next != NULL)
+	while (h->next != NULL)
 	{
 		count += 2;
-		aux = aux->next;
+		h = h->next;
 	}
 
 	return (count);
