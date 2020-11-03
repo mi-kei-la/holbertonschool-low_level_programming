@@ -1,0 +1,23 @@
+#include "lists.h"
+
+/**
+  * free_listint - free memory
+  *
+  * @head: start of list
+  */
+
+void free_listint(listint_t *head)
+{
+	listint_t *aux;
+
+	if (head == NULL)
+		return;
+
+	while (head)
+	{
+		aux = head;
+		free(aux);
+		head = head->next;
+	}
+	free(head);
+}
