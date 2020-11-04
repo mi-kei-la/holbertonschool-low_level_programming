@@ -1,26 +1,23 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 #include "lists.h"
-
 /**
-  * free_list - free memory
-  *
-  * @head: start of list
-  */
-
+ * free_list - frees the list space given..
+ * @head: list given.
+ * Return: void.
+ */
 void free_list(list_t *head)
 {
-	list_t *tmp;
+	list_t *current = head;
+	list_t *next;
 
-	if (head == NULL)
-		return;
-
-	while (head)
+	while (current != NULL)
 	{
-		tmp = head;
-		head = head->next;
-		free(tmp->str);
-		free(tmp);
+		next = current->next;
+		free(current->str);
+		free(current);
+		current = next;
 	}
+	head = NULL;
 }
