@@ -20,5 +20,7 @@ int main(void)
 	printf("\n");
 	print_binary(ULONG_MAX);
 	printf("\n");
+	print_binary(987654372654);
+	printf("\n");
 	return (0);
 }
