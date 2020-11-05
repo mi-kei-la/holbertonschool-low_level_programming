@@ -1,5 +1,6 @@
 #include "holberton.h"
 
+
 /**
   * get_bit - get value of bit at given index
   *
