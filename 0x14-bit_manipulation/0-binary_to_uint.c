@@ -10,7 +10,7 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int div = 1, sum = 0, i, j, count = 0;
+	unsigned int div = 1, sum = 0, i, j = 0, count = 0;
 
 	if (b == NULL)
 		return (0);
@@ -20,6 +20,7 @@ unsigned int binary_to_uint(const char *b)
 		if (b[i] != '0' && b[i] != '1')
 			return (0);
 	}
+	i = j;
 	for (; b[i] != 0; i++)
 	{
 		if (b[i] != '0' && b[i] != '1')
