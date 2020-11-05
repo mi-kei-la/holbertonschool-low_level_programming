@@ -34,7 +34,7 @@ unsigned int binary_to_uint(const char *b)
 		count--;
 	}
 
-	for (j = 0; b[j] != 0; j++)
+	for (; b[j] != 0; j++)
 	{
 		if (b[j] == '1')
 			sum += div;
