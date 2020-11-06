@@ -20,5 +20,7 @@ int main(void)
 	printf("%d\n", n);
 	n = get_bit(ULONG_MAX, 0);
 	printf("%d\n", n);
+	n = get_bit(ULONG_MAX, 20000);
+	printf("%d\n", n);
 	return (0);
 }
