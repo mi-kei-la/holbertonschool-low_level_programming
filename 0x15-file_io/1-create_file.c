@@ -20,10 +20,6 @@ int create_file(const char *filename, char *text_content)
 	if (fd == -1)
 		return (-1);
 
-	for (strlen = 0; text_content[strlen] != 0; strlen++)
-	{
-	}
-
 	if (text_content != NULL)
 	{
 		for (strlen = 0; text_content[strlen] != 0; strlen++)
@@ -33,7 +29,7 @@ int create_file(const char *filename, char *text_content)
 	}
 	close(fd);
 
-	if (flag == 0)
+	if (flag == -1)
 		return (-1);
 	return (1);
 
