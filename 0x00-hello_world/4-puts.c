@@ -1,17 +1,15 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
+ * main - print a quote
  *
  * Return: Always 0 (Success)
  */
 
 int main(void)
 {
+	char quote[] = "\"Programming is like building a multilingual puzzle";
+	puts(quote);
 
-char quote[] = "\"Programming is like building a multilingual puzzle";
-
-puts(quote);
-
-return (0);
+	return (0);
 }
