@@ -3,21 +3,18 @@
 #include <string.h>
 #include "lists.h"
 /**
- * free_list - frees the list space given..
- * @head: list given.
- * Return: void.
+ * free_list - frees the list space given
+ * @head: list given
  */
 void free_list(list_t *head)
 {
-	list_t *current = head;
-	list_t *next;
+	list_t *tmp = NULL;
 
-	while (current != NULL)
+	while (head != NULL)
 	{
-		next = current->next;
-		free(current->str);
-		free(current);
-		current = next;
+		tmp = head;
+		head = head->next;
+		free(tmp->str);
+		free(tmp);
 	}
-	head = NULL;
 }
