@@ -36,9 +36,9 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			tmp = tmp->prev;
 	}
 	size = dlistint_len(tmp); /* check for index existance */
-	if (size < idx)
+	if (idx > size)
 		return (NULL);
-	if (size == idx)
+	if (size == idx + 1)
 		new = add_dnodeint_end(h, n);
 	else
 	{
