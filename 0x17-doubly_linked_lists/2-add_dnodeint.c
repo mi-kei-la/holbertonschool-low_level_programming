@@ -13,9 +13,6 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
 	dlistint_t *new = NULL;
 
-	if (head == NULL) /* check if list exists */
-		return (NULL);
-
 	new = malloc(sizeof(dlistint_t));
 	if (new == NULL) /* check for if allocation fails */
 		return (NULL);
@@ -24,9 +21,12 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	new->n = n;
 	new->next = *head;
 
-	if (*head != NULL) /*check is list has content */
+	if (*head == NULL) /*check is list has content */
+		*head = new;
+	else
+	{
 		(*head)->prev = new;
-	*head = new;
-
+		*head = new;
+	}
 	return (new);
 }
