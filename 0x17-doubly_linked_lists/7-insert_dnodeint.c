@@ -6,51 +6,80 @@
 * @h: head
 * @idx: index of new node
 * @n: data of new node
+*
+* Return: address of new node, NULL otherwise
 */
 
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *new = NULL;
-	dlistint_t *tmp = NULL;
-	unsigned int count = 0;
+	dlistint_t *new = NULL, *tmp = *h;
+	size_t size = 0;
 
-	if (*h == NULL) /* check if list is empty ¨*/
-	{
-		new = add_dnodeint_end(h, n);
-		return (new);
-	}
-
-	if (idx == 0) /* add at start of list */
+	if (h == NULL)
+		return (NULL);
+	new = malloc(sizeof(dlistint_t));
+	if (new == NULL)
+		return (NULL);
+	if (idx == 0 || *h == NULL) /* add at start of list */
 	{
 		new = add_dnodeint(h, n);
 		return (new);
 	}
-
-	tmp = *h;
-	if (tmp->prev != NULL) /* check if h is not start */
+	if (tmp->prev != NULL)
 	{
 		while (tmp->prev != NULL)
-		{
 			tmp = tmp->prev;
-		}
 	}
-	while (count < idx)
-	{
-		if (tmp->next == NULL)
-			return (NULL);
-		tmp = tmp->next;
-		count++;
-	}
-	tmp = tmp->prev;
-	new = malloc(sizeof(dlistint_t));
-	if (new == NULL)
+	size = dlistint_len(tmp);
+	if (size < idx)
 		return (NULL);
-
-	new->prev = tmp;
-	new->next = tmp->next;
-	if (tmp->next != NULL)
-		tmp->next->prev = new;
-	tmp->next = new;
-	new->n = n;
+	if (size == idx)
+		new = add_dnodeint_end(h, n);
+	else
+	{
+		while (idx)
+		{
+			if (tmp->next != NULL)
+				tmp = tmp->next;
+			idx--;
+		}
+		new->next = tmp;
+		new->prev = tmp->prev;
+		if (tmp->prev != NULL)
+			tmp->prev->next = new;
+		tmp->prev = new;
+		new->n = n;
+	}
 	return (new);
+}
+
+/**
+* dlistint_len - return number of elements in a linked list
+*
+* @h: head
+*
+* Return: number of elements
+*/
+
+size_t dlistint_len(const dlistint_t *h)
+{
+	int count = 0;
+
+	if (h == NULL)
+	{
+		return (0);
+	}
+
+	if (h->prev != NULL)
+	{
+		while (h->prev != NULL)
+			h = h->prev;
+	}
+	while (h)
+	{
+		count++;
+		h = h->next;
+	}
+
+	return (count);
 }
