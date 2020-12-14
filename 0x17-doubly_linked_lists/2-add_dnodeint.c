@@ -22,15 +22,11 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 
 	new->prev = NULL;
 	new->n = n;
-
-	if (*head == NULL) /*check is list has content */
-		new->next = NULL;
-	else
-	{
-		(*head)->prev = new;
-		*head = new;
-	}
 	new->next = *head;
+
+	if (*head != NULL) /*check is list has content */
+		(*head)->prev = new;
+	*head = new;
 
 	return (new);
 }
