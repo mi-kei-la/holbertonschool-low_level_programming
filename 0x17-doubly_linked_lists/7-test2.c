@@ -12,33 +12,40 @@
 
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *tmp = *h, *new = NULL;
-	size_t len = dlistint_len(*h);
-	unsigned int i;
+	dlistint_t *new = NULL, *tmp = *h;
+	size_t size = 0;
 
-	if (idx > len)
+	if (h == NULL)
 		return (NULL);
-	else if (idx == 0 || *h == NULL)
+	new = malloc(sizeof(dlistint_t));
+	if (new == NULL)
+		return (NULL);
+	if (idx == 0 || *h == NULL) /* add at start of list */
+	{
 		new = add_dnodeint(h, n);
-	else if (idx == len)
+		return (new);
+	}
+	if (tmp->prev != NULL)
+	{
+		while (tmp->prev != NULL)
+			tmp = tmp->prev;
+	}
+	size = dlistint_len(tmp);
+	if (size < idx)
+		return (NULL);
+	if (size == idx)
 		new = add_dnodeint_end(h, n);
 	else
 	{
-		new = malloc(sizeof(dlistint_t));
-		if (new == NULL)
-			return (NULL);
-		new->n = n;
-		if (tmp->prev != NULL)
-		{
-			while (tmp->prev != NULL)
-				tmp = tmp->prev;
-		}
-		for (i = 0; i <= idx && tmp->next != NULL; i++)
+		for (; idx && tmp->next != NULL; idx--) /* move tmp */
 			tmp = tmp->next;
 		new->next = tmp;
 		new->prev = tmp->prev;
-		tmp->prev->next = new;
 		tmp->prev = new;
+		if (tmp->prev != NULL)
+			tmp->prev->next = new;
+
+		new->n = n;
 	}
 	return (new);
 }
@@ -73,4 +80,3 @@ size_t dlistint_len(const dlistint_t *h)
 
 	return (count);
 }
-
