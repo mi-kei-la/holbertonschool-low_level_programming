@@ -11,21 +11,20 @@
 
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
-	unsigned int count = 0;
+	dlistint_t *h;
 
-	if (head->prev != NULL) /* check if head ptr is not head */
-	{
-		while (head->prev != NULL)
-			head = head->prev;
-	}
+	if (!head)
+		return (0);
 
-	while (count != index)
+	h = head;
+
+	while (index)
 	{
-		head = head->next;
-		if (head == NULL)
+		if (!h->next)
 			return (NULL);
-		count++;
+		h = h->next;
+		index--;
 	}
 
-	return (head);
+	return (h);
 }
