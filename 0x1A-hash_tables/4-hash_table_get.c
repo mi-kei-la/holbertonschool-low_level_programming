@@ -11,17 +11,26 @@
 
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-	unsigned int arr = 0, index = 0, hashed_key = 0;
+	unsigned int index = 0;
+	hash_node_t *aux = NULL;
 
 	if (ht == NULL || key == NULL)
 		return (NULL);
 
-	arr = ht->size;
-	hashed_key = hash_djb2((const unsigned char *)key);
-	index = hashed_key % arr;
+	index = key_index((const unsigned char *)key, ht->size);
 
 	if (ht->array[index] != NULL)
-		return (ht->array[index]->value);
+	{
+		aux = ht->array[index];
+		while (aux != NULL)
+		{
+			if (strcmp(aux->key, key) == 0)
+				return aux->value;
+			if (aux->next == NULL)
+				break;
+			aux = aux->next;
+		}
+	}
 
 	return (NULL);
 }
