@@ -12,31 +12,44 @@
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int arr = 0, index = 0;
-	hash_node_t *new = NULL;
+	unsigned int index = 0;
+	hash_node_t *aux = NULL, *new = NULL;
 
-	if (ht == NULL || key == NULL) /*check parameters*/
+	if (ht == NULL || key == NULL)
 		return (0);
 
-	arr = ht->size;
-	index = key_index((const unsigned char *)key, arr); /*hash key*/
+	index = key_index((const unsigned char *)key, ht->size);
 
-	new = malloc(sizeof(hash_node_t)); /*allocate memory for new node*/
+	if (ht->array[index] != NULL)
+	{
+		aux = ht->array[index];
+		while (aux != NULL) /*check all nodes at index for repeated key*/
+		{
+			if (strcmp(aux->key, key) == 0)
+			{
+				free(aux->value);
+				aux->value = strdup(value);
+				return (1);
+			}
+			if (aux->next == NULL) /*no matches, end of list*/
+				break;
+			aux = aux->next;
+		}
+	}
+	new = malloc(sizeof(hash_node_t)); /*create new node*/
 	if (new == NULL)
 		return (0);
-
-	new->key = strdup(key); /*create new node*/
 	new->value = strdup(value);
-
-	if (ht->array[index] == NULL) /*add node to beginning of list*/
-	{
-		ht->array[index] = new;
-		new->next = NULL;
-	}
-	else
+	new->key = strdup(key);
+	if (ht->array[index] != NULL) /*linked list but no key match*/
 	{
 		new->next = ht->array[index];
 		ht->array[index] = new;
+	}
+	else
+	{
+		ht->array[index] = new;
+		new->next = NULL;
 	}
 	return (1);
 }
