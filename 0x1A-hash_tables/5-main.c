@@ -18,14 +18,14 @@ int main(void)
 	hash_table_set(ht, "Asterix", "Obelix");
 	hash_table_set(ht, "Betty", "Holberton");
 	hash_table_set(ht, "98", "Battery Street");
-	hash_table_set(ht, "subgenera", "holberton");
-	hash_table_set(ht, "stylist", "holberton");
-	hash_table_set(ht, "serafins", "holberton");
-	hash_table_set(ht, "depravement", "holberton");
-	hash_table_set(ht, "neurospora", "holberton");
-	hash_table_set(ht, "heliotropes", "holberton");
-	hash_table_set(ht, "mentioner", "holberton");
-	hash_table_set(ht, "hetairas", "holberton");
+	hash_table_set(ht, "subgenera", "movie");
+	hash_table_set(ht, "stylist", "hair");
+	hash_table_set(ht, "serafins", "exist");
+	hash_table_set(ht, "depravement", "this dude");
+	hash_table_set(ht, "neurospora", "i guess");
+	hash_table_set(ht, "heliotropes", "they fly");
+	hash_table_set(ht, "mentioner", "influence");
+	hash_table_set(ht, "hetairas", "sariateh");
 	hash_table_print(ht);
 	return (EXIT_SUCCESS);
 }
