@@ -16,17 +16,13 @@ void hash_table_delete(hash_table_t *ht)
 		for (i = 0; i < ht->size; i++) /*loop through ht*/
 		{
 			aux = ht->array[i];
-			ptr = aux;
-			if (aux != NULL) /*check if node exists*/
+			while (aux != NULL)
 			{
-				while (ptr != NULL)
-				{
-					aux = ptr;
-					ptr = aux->next;
-					free(aux->key);
-					free(aux->value);
-					free(aux);
-				}
+				ptr = aux->next;
+				free(aux->key);
+				free(aux->value);
+				free(aux);
+				aux = ptr;
 			}
 			free(aux);
 			free(ptr);
