@@ -15,7 +15,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int arr = 0, index = 0;
 	hash_node_t *new = NULL;
 
-	if (ht == NULL || key == NULL || value == NULL) /*check parameters*/
+	if (ht == NULL || key == NULL) /*check parameters*/
 		return (0);
 
 	arr = ht->size;
