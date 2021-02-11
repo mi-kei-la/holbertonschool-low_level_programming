@@ -6,4 +6,5 @@ NAME = holberton
 all: $(NAME)
 
 $(NAME): $(OBJ) m.h
+	# Compile all object files.
 	$(CC) $(OBJ) -o $(NAME)
