@@ -1,0 +1,29 @@
+CC = gcc
+SRC = main.c holberton.c
+OBJ = $(SRC:.c=.o)
+NAME = holberton
+RM = rm -f
+
+all: $(NAME)
+
+$(NAME): $(OBJ) m.h
+	# Compile holberton file.
+	$(CC) $(OBJ) -o $(NAME)
+
+clean:
+	# Delete all temp files and executable.
+	$(RM) *~ $(NAME)
+
+oclean:
+	# Delete all object files.
+	$(RM) $(OBJ)
+
+fclean:
+	# Delete all temp files, executable file and object files.
+	make oclean -f 3-Makefile
+	make clean -f 3-Makefile
+
+re:
+	# Forces recomplilation.
+	make fclean -f 3-Makefile
+	make all -f 3-Makefile
