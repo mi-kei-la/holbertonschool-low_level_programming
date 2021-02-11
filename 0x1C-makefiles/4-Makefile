@@ -5,7 +5,7 @@ NAME = holberton
 RM = rm -f
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-all: holberton
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	# Compile executable file.
@@ -21,8 +21,8 @@ oclean:
 
 fclean:
 	# Delete all temp files, object files and executable.
-	make clean -f 4-Makefile
 	make oclean -f 4-Makefile
+	make clean -f 4-Makefile
 
 re:
 	# Forces recompilation.
