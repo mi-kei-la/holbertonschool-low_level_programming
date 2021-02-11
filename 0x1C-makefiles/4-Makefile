@@ -1,0 +1,26 @@
+CC = gcc
+SRC = main.c holberton.c
+OBJ = $(SRC:.c=.o)
+NAME = holberton
+RM = rm -f
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+all: holberton
+
+$(NAME): $(OBJ)
+	# Compile executable file.
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+clean:
+	# Delete temp files and executable.
+	$(RM) *~ $(NAME)
+
+oclean:
+	# Delete all object files.
+	$(RM) $(OBJ)
+
+fclean: oclean clean
+	# Delete all temp files, object files and executable.
+
+re: fclean all
+	# Forces recompilation.
