@@ -1,0 +1,8 @@
+CC := gcc
+SRC := main.c holberton.c
+
+all: holberton
+
+holberton: $(SRC) m.h
+	# Compile all files.
+	$(CC) $(SRC) m.h -o holberton
