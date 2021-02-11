@@ -14,11 +14,11 @@ $(NAME): $(OBJ) m.h
 
 clean:
 	# Delete temp files and executable.
-	$(RM) *~ $(NAME)
+	$(RM) -f *~ $(NAME)
 
 oclean:
 	# Delete all object files.
-	$(RM) $(OBJ)
+	$(RM) -f $(OBJ)
 
 fclean: oclean clean
 
