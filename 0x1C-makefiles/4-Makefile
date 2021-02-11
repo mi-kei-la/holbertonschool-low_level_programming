@@ -19,12 +19,6 @@ oclean:
 	# Delete all object files.
 	$(RM) $(OBJ)
 
-fclean:
-	# Delete all temp files, object files and executable.
-	make oclean -f 4-Makefile
-	make clean -f 4-Makefile
+fclean: oclean clean
 
-re:
-	# Forces recompilation.
-	make fclean -f 4-Makefile
-	make all -f 4-Makefile
+re: fclean all
