@@ -1,11 +1,11 @@
 #include "holberton.h"
 
 /**
- * _isalpha - entry point
+ * _isalpha - Check if a given character is a letter.
  *
  * @c: parameter
  *
- * Return: 1 if char is letter (lowercase or uppercase), 0 otherwise
+ * Return: 1 if char is letter (lowercase or uppercase), 0 otherwise.
  */
 
 int _isalpha(int c)

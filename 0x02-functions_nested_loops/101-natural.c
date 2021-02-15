@@ -14,7 +14,7 @@ int main(void)
 }
 
 /**
- * natural - sum multiples of 3 and 5
+ * natural - Sum multiples of 3 and 5.
  *
  */
 

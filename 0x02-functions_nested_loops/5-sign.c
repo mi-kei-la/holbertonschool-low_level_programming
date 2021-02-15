@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * print_sign - entry point
+ * print_sign - Print the sign of a number ('+', '-', '0')..
  *
  * @n: parameter
  *

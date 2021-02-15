@@ -1,10 +1,7 @@
 #include "holberton.h"
 
 /**
- * times_table - entry point
- *
- * Void return
- *
+ * times_table - Print the times table for two digit numbers.
  */
 
 void times_table(void)

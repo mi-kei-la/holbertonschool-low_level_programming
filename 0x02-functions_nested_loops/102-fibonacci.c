@@ -15,7 +15,7 @@ int main(void)
 }
 
 /**
- * fibonacci - print 50 fibonacci numbers
+ * fibonacci - Print 50 fibonacci numbers.
  */
 
 void fibonacci(void)

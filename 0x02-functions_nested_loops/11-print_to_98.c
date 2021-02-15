@@ -2,13 +2,11 @@
 #include <stdio.h>
 
 /**
- * print_to_98 - entry point
- *
- * Print numbers to 98
- *
- * Return: 0 (success)
+ * print_to_98 - Print numbers up to 98.
  *
  * @n: parameter
+ *
+ * Return: 0 (success)
  */
 
 void print_to_98(int n)

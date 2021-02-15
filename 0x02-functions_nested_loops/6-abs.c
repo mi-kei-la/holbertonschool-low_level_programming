@@ -1,9 +1,7 @@
 #include "holberton.h"
 
 /**
- * _abs - entry point
- *
- * write the absolut value of an integer
+ * _abs - Print the absolut value of an integer.
  *
  * @a: parameter
  *

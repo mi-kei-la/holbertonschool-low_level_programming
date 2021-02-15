@@ -1,9 +1,8 @@
 #include "holberton.h"
 
 /**
- * print_times_table - entry point
+ * print_times_table - Print times table for three digit numbers.
  * @n: parameter
- * print_times_table - print multiplication tables
  */
 
 void print_times_table(int n)
