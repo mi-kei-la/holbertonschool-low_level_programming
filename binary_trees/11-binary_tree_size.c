@@ -1,12 +1,16 @@
 #include "binary_trees.h"
 
 /**
+  * binary_tree_size - Calculate the number of nodes in a tree.
   *
+  * @tree: Tree to traverse.
+  *
+  * Return: Tree size.
   */
 
 size_t binary_tree_size(const binary_tree_t *tree)
 {
-	size_t left = 0, right = 0;
+	size_t count = 0;
 
 	if (!tree)
 		return (0);
@@ -14,9 +18,9 @@ size_t binary_tree_size(const binary_tree_t *tree)
 		return (1);
 
 	if (tree->left)
-		left = binary_tree_size(tree->left) + 1;
+		count += binary_tree_size(tree->left);
 	if (tree->right)
-		right = binary_tree_size(tree->right) + 1;
+		count += binary_tree_size(tree->right);
 
-	return (left + right);
+	return (count + 1);
 }
