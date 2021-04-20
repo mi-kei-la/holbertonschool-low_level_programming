@@ -40,14 +40,8 @@ int recursive_interpolation(int *array, size_t low, size_t high, int value)
 	size_t pos = low + (((double)(high - low) / (array[high] - array[low]))
 			* (value - array[low]));
 
-	if (low <= high)
+	if (low <= high && value >= array[low] && value <= array[high])
 	{
-
-		if (pos > high)
-		{
-			printf("Value checked array[%zu] is out of range\n", pos);
-			return (-1);
-		}
 		printf("Value checked array[%zu] = [%d]\n", pos, array[pos]);
 
 		if (array[pos] == value)
