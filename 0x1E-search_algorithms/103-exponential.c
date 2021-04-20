@@ -37,7 +37,6 @@ int exponential_search(int *array, size_t size, int value)
 		printf("%d\n", array[i]);
 
 		mid = exp + (max - exp) / 2;
-		/* mid = (left + right) / 2; */
 		if (array[mid] < value)
 			exp = mid + 1;
 		else if (array[mid] > value)
