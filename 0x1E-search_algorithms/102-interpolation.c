@@ -37,12 +37,11 @@ int interpolation_search(int *array, size_t size, int value)
 
 int recursive_interpolation(int *array, size_t low, size_t high, int value)
 {
-	size_t pos = 0;
+	size_t pos = low + (((double)(high - low) / (array[high] - array[low]))
+			* (value - array[low]));
 
 	if (low <= high)
 	{
-		pos = low + (((double)(high - low) / (array[high] - array[low]))
-			* (value - array[low]));
 
 		if (pos > high)
 		{
