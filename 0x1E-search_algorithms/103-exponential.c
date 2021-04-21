@@ -22,8 +22,10 @@ int exponential_search(int *array, size_t size, int value)
 		printf("Value checked array[%zu] = [%d]\n", exp, array[exp]);
 		exp *= 2;
 	}
-
-	max = exp - 1;
+	if (exp == size)
+		max = exp - 1;
+	else
+		max = exp;
 	exp = exp / 2;
 
 	printf("Value found between indexes [%zu] and [%zu]\n", exp, max);
